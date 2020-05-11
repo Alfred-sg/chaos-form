@@ -57,15 +57,23 @@ const formItemPropNames = [
   'formItemClassName', 
 ];
 
-export const WrapFormItem = (Field: React.FC | React.ComponentClass, defaultFormItemProps?: { [key: string]: any }) => {
+export const WrapFormItem = (
+  Field: React.FC | React.ComponentClass, 
+  defaultFormItemProps?: { [key: string]: any },
+  options?: {
+    getFormItemPropsFromProps?: (props: FormItemWrapperProps) => FormItemProps,
+  }
+) => {
   const FormItemWrapper: React.FC<FormItemWrapperProps> = (props: FormItemWrapperProps) => {
     const { children, ...rest } = props;
     const formItemProps = extract(rest, formItemPropNames);
     const fieldProps = omit(rest, formItemPropNames);
+    const formItemPropsFromProps = options && options.getFormItemPropsFromProps ? 
+      options.getFormItemPropsFromProps(props) : undefined;
 
     console.log(defaultFormItemProps)
     return (
-      <FormItem {...defaultFormItemProps} {...formItemProps}>
+      <FormItem {...defaultFormItemProps} {...formItemProps} {...formItemPropsFromProps}>
         <Field {...fieldProps}>
           {children ? children : null}
         </Field>
