@@ -109,6 +109,8 @@ export const fileValidatorFactory = (props: ChaosUploadProps) => {
       }
     }
 
+    // @ts-ignore
+    file.uploadPrevented = true;
     return preventUpload;
   }
 }

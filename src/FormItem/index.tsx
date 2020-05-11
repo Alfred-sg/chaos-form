@@ -9,14 +9,13 @@ import './index.less';
 
 const FormItem: React.FC<FormItemProps> = (props) => {
   const {
-    label,
     className,
     children,
     ...rest
   } = props;
   const formItemClassName = classnames({
     'chaos-form-item': true,
-    [className as string]: true,
+    [className as string]: !!className,
   });
 
   const rules = props.rules ? props.rules : [];
@@ -25,7 +24,7 @@ const FormItem: React.FC<FormItemProps> = (props) => {
       required: true,
       message: `${props.label || '字段'}不可缺失`,
     });
-  }
+  };
 
   return (
     <PropsContext.Provider value={props}>
@@ -64,6 +63,7 @@ export const WrapFormItem = (Field: React.FC | React.ComponentClass, defaultForm
     const formItemProps = extract(rest, formItemPropNames);
     const fieldProps = omit(rest, formItemPropNames);
 
+    console.log(formItemProps)
     return (
       <FormItem {...defaultFormItemProps} {...formItemProps}>
         <Field {...fieldProps}>

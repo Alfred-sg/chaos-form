@@ -61,9 +61,10 @@ const ChaosUpload = ({
     };
 
     info.fileList = info.fileList.filter((file: any) => {
-      if ( file.status === 'error' || (
-        file.status === 'done' && file.response && !file.response.success
-      )) return false;
+      if ( file.status === 'error' || 
+        file.uploadPrevented || 
+        (file.status === 'done' && file.response && !file.response.success)
+      ) return false;
 
       return true;
     });
@@ -89,7 +90,9 @@ const ChaosUpload = ({
 
   return (
     <Upload 
+      disabled={max && fileList && fileList.length >= max ? true : false}
       {...rest} 
+      fileList={fileList}
       accept={convetAccept(rest.accept)} 
       transformFile={transformFile}
       beforeUpload={beforeUpload}

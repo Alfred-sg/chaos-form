@@ -16,13 +16,32 @@ group:
 
 ## demos
 
-### demo 1: basic
+### demo 1: 文件校验
 
 ```jsx
 import React from 'react';
-import { Upload } from 'chaos-form-antd4';
+import { Form, Upload } from 'chaos-form-antd4';
 
 export default () => {
-  return <Upload name="avator" label="上传文件" />
+  return (
+    <Form labelCol={3}>
+      <Upload name="avator" label="上传文件" accept="vedio" maxSize={2} />
+    </Form>
+  )
+}
+```
+
+### demo 2: 上传数量
+
+```jsx
+import React from 'react';
+import { Form, Upload } from 'chaos-form-antd4';
+
+export default () => {
+  return (
+    <Form labelCol={3}>
+      <Upload name="avator" label="上传图片" listType="picture-card" accept="image" max={2} />
+    </Form>
+  )
 }
 ```
