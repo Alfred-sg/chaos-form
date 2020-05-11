@@ -7,6 +7,7 @@ import { convetAccept, fileValidatorFactory } from './utils';
 import * as logger from '../logger';
 import { UploadFile, UploadChangeParam, RcFile } from 'antd/es/upload/interface';
 import { ChaosUploadProps } from './types';
+import './index.less';
 
 const ChaosUpload = ({
   children,

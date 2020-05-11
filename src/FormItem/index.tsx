@@ -63,7 +63,7 @@ export const WrapFormItem = (Field: React.FC | React.ComponentClass, defaultForm
     const formItemProps = extract(rest, formItemPropNames);
     const fieldProps = omit(rest, formItemPropNames);
 
-    console.log(formItemProps)
+    console.log(defaultFormItemProps)
     return (
       <FormItem {...defaultFormItemProps} {...formItemProps}>
         <Field {...fieldProps}>
