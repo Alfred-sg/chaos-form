@@ -59,9 +59,9 @@ const formItemPropNames = [
 
 export const WrapFormItem = (
   Field: React.FC | React.ComponentClass, 
-  defaultFormItemProps?: { [key: string]: any },
   options?: {
-    getFormItemPropsFromProps?: (props: FormItemWrapperProps) => FormItemProps,
+    defaultFormItemProps?: { [key: string]: any },
+    getFormItemPropsFromProps?: (props: FormItemWrapperProps) => { [key: string]: any },
   }
 ) => {
   const FormItemWrapper: React.FC<FormItemWrapperProps> = (props: FormItemWrapperProps) => {
@@ -71,9 +71,9 @@ export const WrapFormItem = (
     const formItemPropsFromProps = options && options.getFormItemPropsFromProps ? 
       options.getFormItemPropsFromProps(props) : undefined;
 
-    console.log(defaultFormItemProps)
     return (
-      <FormItem {...defaultFormItemProps} {...formItemProps} {...formItemPropsFromProps}>
+      <FormItem {...(options && options.defaultFormItemProps)} 
+        {...formItemProps} {...formItemPropsFromProps}>
         <Field {...fieldProps}>
           {children ? children : null}
         </Field>

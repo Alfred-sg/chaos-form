@@ -28,5 +28,6 @@ const CustomForm = ({
 };
 
 CustomForm.Item = FormItem;
+CustomForm.useForm = Form.useForm;
 
 export default CustomForm;

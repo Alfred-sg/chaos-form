@@ -36,7 +36,7 @@ const ChaosInput: React.FC<InputProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosInput, {}, {
+export default WrapFormItem(ChaosInput, {
   getFormItemPropsFromProps: (props: FormItemWrapperProps) => {
     return {
       rules: getRulesFromProps(props),

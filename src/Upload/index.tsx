@@ -105,8 +105,10 @@ const ChaosUpload = ({
 }
 
 export default WrapFormItem(ChaosUpload, {
-  valuePropName: "fileList",
-  getValueFromEvent: (e: any) => {
-    return Array.isArray(e) ? e : e && e.fileList;
-  },
+  defaultFormItemProps: {
+    valuePropName: "fileList",
+    getValueFromEvent: (e: any) => {
+      return Array.isArray(e) ? e : e && e.fileList;
+    },
+  }
 });
