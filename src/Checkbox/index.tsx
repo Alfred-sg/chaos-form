@@ -1,7 +1,7 @@
 import React from 'react';
 import { Checkbox } from 'antd';
 import { WrapFormItem } from '../FormItem';
-import { CheckboxProps, CheckboxGroupProps } from 'antd/es/checkbox';
+import { CheckboxGroupProps } from 'antd/es/checkbox';
 
 const ChaosCheckbox: React.FC<CheckboxGroupProps> = ({
   children,

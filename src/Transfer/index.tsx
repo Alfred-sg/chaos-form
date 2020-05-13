@@ -1,9 +1,9 @@
 import React from 'react';
 import { Transfer } from 'antd';
 import { WrapFormItem } from '../FormItem';
-import { TransferProps } from 'antd/es/transfer';
+import { ChaosTransferProps } from './types';
 
-const ChaosTransfer: React.FC<TransferProps> = ({
+const ChaosTransfer: React.FC<ChaosTransferProps> = ({
   children,
   value,
   ...rest

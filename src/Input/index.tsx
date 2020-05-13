@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Input } from 'antd';
 import { getRulesFromProps } from './utils';
-import { InputProps } from 'antd/es/input';
+import { InputProps, TextAreaProps } from 'antd/es/input';
 import FormItemPropsContext from '../FormItem/PropsContext';
 import { WrapFormItem, FormItemWrapperProps } from '../FormItem';
 
@@ -27,7 +27,7 @@ const ChaosInput: React.FC<InputProps> = (props) => {
   const extraProps = getExtraProps(props.type);
 
   return (
-    <FieldComp
+    <Input
       placeholder={`请输入${formItemPropsContext.label}`}
       maxLength={30}
       {...extraProps}
@@ -36,7 +36,19 @@ const ChaosInput: React.FC<InputProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosInput, {
+const ChaosTextArea: React.FC<TextAreaProps> = (props) => {
+  const formItemPropsContext = useContext(FormItemPropsContext);
+
+  return (
+    <Input.TextArea
+      placeholder={`请输入${formItemPropsContext.label}`}
+      maxLength={250}
+      {...props}
+    />
+  )
+}
+
+const FinalChaosInput = WrapFormItem(ChaosInput, {
   defaultDetailType: 'text',
   getFormItemPropsFromProps: (props: FormItemWrapperProps) => {
     return {
@@ -50,3 +62,10 @@ export default WrapFormItem(ChaosInput, {
     }
   }
 });
+
+// @ts-ignore
+FinalChaosInput.Textarea = WrapFormItem(ChaosTextArea, {
+  defaultDetailType: 'text',
+})
+
+export default FinalChaosInput;

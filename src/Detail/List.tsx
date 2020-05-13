@@ -23,7 +23,8 @@ const List = ({
                 renderItemDetail(item, index) : 
                 (
                   <div className="chaos-form-detail-row" key={index}>
-                    {Children.map(children, child => {
+                    // @ts-ignore
+                    {Children.map<React.ReactElement, React.ReactElement>(children, child => {
                       const props = child.props;
                       return cloneElement(child, {
                         ...props,

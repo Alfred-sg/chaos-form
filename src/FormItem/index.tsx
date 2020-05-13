@@ -60,9 +60,9 @@ const formItemPropNames = [
 ];
 
 export const WrapFormItem = (
-  Field: React.FunctionComponent | React.Component, 
+  Field: React.FC<any> | React.FunctionComponent<any> | React.Component<any>, 
   options?: {
-    defaultDetailType?: string | React.FunctionComponent | React.Component;
+    defaultDetailType?: string | React.FC<any> | React.FunctionComponent<any> | React.Component<any>;
     defaultFormItemProps?: { [key: string]: any };
     getFormItemPropsFromProps?: (props: FormItemWrapperProps) => { [key: string]: any };
   }
@@ -88,9 +88,11 @@ export const WrapFormItem = (
     return (
       <FormItem {...finalFormItemProps}>
         {formAttributesContext.detail && DetailComponent ? (
+          // @ts-ignore
           <DetailComponent {...fieldProps} valuePropName={finalFormItemProps.valuePropName}>
             {children ? children : null}
           </DetailComponent>
+          // @ts-ignore
         ) : (<Field {...fieldProps}>
           {children ? children : null}
         </Field>)}

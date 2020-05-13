@@ -8,7 +8,9 @@ export const DetailComponents: {
 } = {
   'image': Image,
   'tag': Tag,
+  // @ts-ignore
   'text': Text,
+  // @ts-ignore
   'list': List,
 }
 

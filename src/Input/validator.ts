@@ -45,6 +45,7 @@ export const IdCardValidator = async (rule: any, code: string) => {
     throw new Error("身份证号格式错误");
   }
 
+  // @ts-ignore
   if( !City[code.substr(0,2)] ){
     throw new Error("身份证号中地址编码错误");
   }
@@ -54,6 +55,7 @@ export const IdCardValidator = async (rule: any, code: string) => {
     let sum = 0;
     code.substr(0,17).split('').forEach((ai, i) => {
       let wi = factor[i];
+      // @ts-ignore
       sum += ai * wi;
     });
 

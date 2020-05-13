@@ -17,6 +17,7 @@ const ChaosTreeSelect: React.FC<TreeSelectProps<any>> = ({
 const FinalTreeSelect = WrapFormItem(ChaosTreeSelect, {
   defaultDetailType: 'text',
 });
+// @ts-ignore
 FinalTreeSelect.TreeNode = TreeSelect.TreeNode;
 
 export default FinalTreeSelect;

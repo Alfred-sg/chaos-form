@@ -41,7 +41,7 @@ const ChaosList: React.FC<ChaosListProps> = ({
           return (
             <div key={mainKey + index} className="chaos-form-list-item">
               <div className="chaos-form-list-fields">
-              {Children.map(children, child => {
+              {Children.map<React.ReactElement, React.ReactElement>(children, child => {
                 return cloneElement(child, {
                   ...(transformFieldProps ? transformFieldProps(child.props, index) : child.props),
                   name: [formItemPropsContext.name, index, child.props.name],

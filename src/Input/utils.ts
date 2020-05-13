@@ -2,7 +2,7 @@ import { ChinaMobileValidator, TelephoneValidator, IdCardValidator } from './val
 import { FormItemWrapperProps } from '../FormItem';
 
 export const getRulesFromProps = (props: FormItemWrapperProps) => {
-  const rules = [];
+  let rules = [];
 
   if (props.required){
     rules.push({
@@ -35,6 +35,6 @@ export const getRulesFromProps = (props: FormItemWrapperProps) => {
       })
   }
 
-  rules.concat(props.rules || []);
+  if (props.rules) rules = [...rules, props.rules];
   return rules;
 }
