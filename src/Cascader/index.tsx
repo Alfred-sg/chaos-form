@@ -16,4 +16,6 @@ const ChaosCascader: React.FC<CascaderProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosCascader);
+export default WrapFormItem(ChaosCascader, {
+  defaultDetailType: 'text',
+});

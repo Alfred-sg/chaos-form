@@ -27,3 +27,18 @@ export default () => {
   )
 }
 ```
+
+### demo 2: 详情
+
+```jsx
+import React from 'react';
+import { Form, Switch } from 'chaos-form-antd4';
+
+export default () => {
+  return (
+    <Form detail labelCol={3} initialValues={{switch: true}}>
+      <Switch name="switch" checkedChildren="开" unCheckedChildren="关" />
+    </Form>
+  )
+}
+```

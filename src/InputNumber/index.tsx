@@ -10,4 +10,6 @@ const ChaosInputNumber: React.FC<InputNumberProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosInputNumber);
+export default WrapFormItem(ChaosInputNumber, {
+  defaultDetailType: 'text',
+});

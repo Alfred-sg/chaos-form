@@ -29,3 +29,20 @@ export default () => {
   )
 }
 ```
+
+### demo 2: 详情
+
+```jsx
+import React from 'react';
+import { Form, Mentions } from 'chaos-form-antd4';
+
+export default () => {
+  return (
+    <Form detail labelCol={3} initialValues={{author: 'author1'}}>
+      <Mentions name="author" options={[{
+        label: 'author1', value: 'author1'
+      }]} />
+    </Form>
+  )
+}
+```

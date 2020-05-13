@@ -10,4 +10,6 @@ const ChaosAutoComplete: React.FC<AutoCompleteProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosAutoComplete);
+export default WrapFormItem(ChaosAutoComplete, {
+  defaultDetailType: 'text',
+});

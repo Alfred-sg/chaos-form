@@ -27,3 +27,18 @@ export default () => {
   )
 }
 ```
+
+### demo 2: 详情
+
+```jsx
+import React from 'react';
+import { Form, InputNumber } from 'chaos-form-antd4';
+
+export default () => {
+  return (
+    <Form detail labelCol={3} initialValues={{amount: '2020'}}>
+      <InputNumber name="amount" label="金额" />
+    </Form>
+  )
+}
+```

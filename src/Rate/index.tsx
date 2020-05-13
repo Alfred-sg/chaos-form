@@ -10,4 +10,8 @@ const ChaosRate: React.FC<RateProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosRate);
+export default WrapFormItem(ChaosRate, {
+  defaultDetailType: (props: RateProps) => {
+    return <ChaosRate {...props} disabled />
+  },
+});

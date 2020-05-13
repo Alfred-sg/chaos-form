@@ -12,4 +12,6 @@ const ChaosCheckbox: React.FC<CheckboxProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosCheckbox);
+export default WrapFormItem(ChaosCheckbox, {
+  defaultDetailType: 'text',
+});

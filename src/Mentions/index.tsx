@@ -17,4 +17,6 @@ const ChaosMentions: React.FC<ChaosMentionsProps> = ({
   )
 }
 
-export default WrapFormItem(ChaosMentions);
+export default WrapFormItem(ChaosMentions, {
+  defaultDetailType: 'text',
+});

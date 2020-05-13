@@ -29,3 +29,20 @@ export default () => {
   )
 }
 ```
+
+### demo 2: 详情
+
+```jsx
+import React from 'react';
+import { Form, AutoComplete } from 'chaos-form-antd4';
+
+export default () => {
+  return (
+    <Form detail labelCol={3} initialValues={{author: 'author1'}}>
+      <AutoComplete name='author' options={[{
+        label: 'author1', value: 'author1'
+      }]} />
+    </Form>
+  )
+}
+```

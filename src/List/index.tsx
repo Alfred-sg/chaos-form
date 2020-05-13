@@ -86,6 +86,7 @@ const ChaosList: React.FC<ChaosListProps> = ({
 }
 
 export default WrapFormItem(ChaosList, {
+  defaultDetailType: 'list',
   defaultFormItemProps: {
     shouldUpdate: true,
   }

@@ -10,4 +10,8 @@ const ChaosSwitch: React.FC<SwitchProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosSwitch);
+export default WrapFormItem(ChaosSwitch, {
+  defaultDetailType: (props: SwitchProps) => {
+    return <ChaosSwitch {...props} disabled />
+  },
+});

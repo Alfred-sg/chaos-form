@@ -42,3 +42,19 @@ export default () => {
   )
 }
 ```
+
+### demo 2: 详情
+
+```jsx
+import React from 'react';
+import { Form, TimePicker } from 'chaos-form-antd4';
+
+export default () => {
+  return (
+    <Form detail labelCol={3} initialValues={{time: '20:54:00'}}>
+      <TimePicker name="time" label="时间" />
+    </Form>
+  )
+}
+```
+

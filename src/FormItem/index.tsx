@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { Form } from 'antd';
 import { FormItemProps } from 'antd/es/form';
 import PropsContext from './PropsContext';
 import omit from 'omit.js';
+import FormAttributesContext from '../Form/AttributesContext';
+import { DetailComponents } from '../Detail';
 import { extract } from '../utils';
 import './index.less';
 
@@ -60,23 +62,38 @@ const formItemPropNames = [
 export const WrapFormItem = (
   Field: React.FC | React.ComponentClass, 
   options?: {
-    defaultFormItemProps?: { [key: string]: any },
-    getFormItemPropsFromProps?: (props: FormItemWrapperProps) => { [key: string]: any },
+    defaultDetailType?: string | React.FC | React.ComponentClass;
+    defaultFormItemProps?: { [key: string]: any };
+    getFormItemPropsFromProps?: (props: FormItemWrapperProps) => { [key: string]: any };
   }
 ) => {
   const FormItemWrapper: React.FC<FormItemWrapperProps> = (props: FormItemWrapperProps) => {
-    const { children, ...rest } = props;
+    const formAttributesContext = useContext(FormAttributesContext);
+    const { children, detailType, ...rest } = props;
     const formItemProps = extract(rest, formItemPropNames);
     const fieldProps = omit(rest, formItemPropNames);
     const formItemPropsFromProps = options && options.getFormItemPropsFromProps ? 
       options.getFormItemPropsFromProps(props) : undefined;
+    const finalFormItemProps = {
+      ...(options && options.defaultFormItemProps),
+      ...formItemProps, 
+      ...formItemPropsFromProps,
+    };
+    const DetailComponent = detailType ? DetailComponents[detailType] : 
+      typeof (options && options.defaultDetailType) == 'string' ? 
+        DetailComponents[options?.defaultDetailType as string] : 
+      typeof (options && options.defaultDetailType) !== undefined ? 
+        options?.defaultDetailType : undefined;
 
     return (
-      <FormItem {...(options && options.defaultFormItemProps)} 
-        {...formItemProps} {...formItemPropsFromProps}>
-        <Field {...fieldProps}>
+      <FormItem {...finalFormItemProps}>
+        {formAttributesContext.detail && DetailComponent ? (
+          <DetailComponent {...fieldProps} valuePropName={finalFormItemProps.valuePropName}>
+            {children ? children : null}
+          </DetailComponent>
+        ) : (<Field {...fieldProps}>
           {children ? children : null}
-        </Field>
+        </Field>)}
       </FormItem>
     )
   };

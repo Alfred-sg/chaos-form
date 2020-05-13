@@ -12,4 +12,6 @@ const ChaosRadio: React.FC<RadioProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosRadio);
+export default WrapFormItem(ChaosRadio, {
+  defaultDetailType: 'text',
+});

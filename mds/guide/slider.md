@@ -27,3 +27,18 @@ export default () => {
   )
 }
 ```
+
+### demo 2: 详情
+
+```jsx
+import React from 'react';
+import { Form, Slider } from 'chaos-form-antd4';
+
+export default () => {
+  return (
+    <Form detail labelCol={3} initialValues={{rate: 30}}>
+      <Slider name="rate" />
+    </Form>
+  )
+}
+```

@@ -40,10 +40,20 @@ const ChaosRangePicker: React.FC<RangePickerProps> = (props) => {
   )
 }
 
-const FinalDatePicker = WrapFormItem(ChaosDatePicker);
-FinalDatePicker.YearPicker = ChaosYearPicker;
-FinalDatePicker.MonthPicker = ChaosMonthPicker;
-FinalDatePicker.WeekPicker = ChaosWeekPicker;
-FinalDatePicker.RangePicker = ChaosRangePicker;
+const FinalDatePicker = WrapFormItem(ChaosDatePicker, {
+  defaultDetailType: 'text',
+});
+FinalDatePicker.YearPicker = WrapFormItem(ChaosYearPicker, {
+  defaultDetailType: 'text',
+});
+FinalDatePicker.MonthPicker = WrapFormItem(ChaosMonthPicker, {
+  defaultDetailType: 'text',
+});
+FinalDatePicker.WeekPicker = WrapFormItem(ChaosWeekPicker, {
+  defaultDetailType: 'text',
+});
+FinalDatePicker.RangePicker = WrapFormItem(ChaosRangePicker, {
+  defaultDetailType: 'text',
+});
 
 export default FinalDatePicker;

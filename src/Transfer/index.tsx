@@ -15,4 +15,6 @@ const ChaosTransfer: React.FC<TransferProps> = ({
   )
 }
 
-export default WrapFormItem(ChaosTransfer);
+export default WrapFormItem(ChaosTransfer, {
+  defaultDetailType: 'text',
+});

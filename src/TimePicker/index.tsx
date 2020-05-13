@@ -17,7 +17,11 @@ const ChaosRangePicker: React.FC<TimeRangePickerProps> = (props) => {
   )
 }
 
-const FinalTimePicker = WrapFormItem(ChaosTimePicker);
-FinalTimePicker.RangePicker = ChaosRangePicker;
+const FinalTimePicker = WrapFormItem(ChaosTimePicker, {
+  defaultDetailType: 'text',
+});
+FinalTimePicker.RangePicker = WrapFormItem(ChaosRangePicker, {
+  defaultDetailType: 'text',
+});
 
 export default FinalTimePicker;

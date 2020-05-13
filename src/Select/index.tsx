@@ -26,4 +26,6 @@ const ChaosSelect: React.FC<SelectProps<LabeledValue>> = ({
   )
 }
 
-export default WrapFormItem(ChaosSelect);
+export default WrapFormItem(ChaosSelect, {
+  defaultDetailType: 'text',
+});

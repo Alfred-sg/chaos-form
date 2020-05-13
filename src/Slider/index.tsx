@@ -10,4 +10,8 @@ const ChaosSlider: React.FC<SliderProps> = (props) => {
   )
 }
 
-export default WrapFormItem(ChaosSlider);
+export default WrapFormItem(ChaosSlider, {
+  defaultDetailType: (props: SliderProps) => {
+    return <ChaosSlider {...props} disabled />
+  },
+});

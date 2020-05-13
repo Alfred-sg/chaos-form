@@ -72,3 +72,18 @@ export default () => {
   )
 }
 ```
+
+### demo 5: 详情
+
+```jsx
+import React from 'react';
+import { Form, DatePicker } from 'chaos-form-antd4';
+
+export default () => {
+  return (
+    <Form detail labelCol={3} initialValues={{date: '2020-05-13 20:54:00'}}>
+      <DatePicker name="date" label="时间" />
+    </Form>
+  )
+}
+```

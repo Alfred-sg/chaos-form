@@ -105,6 +105,7 @@ const ChaosUpload = ({
 }
 
 export default WrapFormItem(ChaosUpload, {
+  defaultDetailType: 'tag',
   defaultFormItemProps: {
     valuePropName: "fileList",
     getValueFromEvent: (e: any) => {

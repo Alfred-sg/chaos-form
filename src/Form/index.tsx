@@ -6,19 +6,19 @@ import FormItem from '../FormItem';
 import { ChaosFormProps } from './types';
 import './index.less';
 
-const CustomForm = ({
-  form,
-  children,
-  attrs,
-  ...rest
-}: ChaosFormProps) => {
-  const isDetail = attrs && attrs.mode == 'detail';
+const CustomForm = (props: ChaosFormProps) => {
+  const {
+    form,
+    children,
+    detail,
+    ...rest
+  } = props;
   
   return (
-    <div className={isDetail ? 'chaos-form-detail' : undefined}>
+    <div className={detail ? 'chaos-form-detail' : undefined}>
       <Form form={form} {...rest}>
         <FormContext.Provider value={form}>
-          <FormAttributesContext.Provider value={attrs || {}}>
+          <FormAttributesContext.Provider value={{ detail, ...rest }}>
             {children}
           </FormAttributesContext.Provider>
         </FormContext.Provider>
