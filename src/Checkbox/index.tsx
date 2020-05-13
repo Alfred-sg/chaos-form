@@ -1,13 +1,17 @@
 import React from 'react';
 import { Checkbox } from 'antd';
 import { WrapFormItem } from '../FormItem';
-import { CheckboxProps } from 'antd/es/checkbox';
+import { CheckboxProps, CheckboxGroupProps } from 'antd/es/checkbox';
 
-const ChaosCheckbox: React.FC<CheckboxProps> = (props) => {
+const ChaosCheckbox: React.FC<CheckboxGroupProps> = ({
+  children,
+  ...rest
+}) => {
   return (
     <Checkbox.Group
-      {...props}
+      {...rest}
     >
+      {children}
     </Checkbox.Group>
   )
 }

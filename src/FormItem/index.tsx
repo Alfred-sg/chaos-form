@@ -60,9 +60,9 @@ const formItemPropNames = [
 ];
 
 export const WrapFormItem = (
-  Field: React.FC | React.ComponentClass, 
+  Field: React.FunctionComponent | React.Component, 
   options?: {
-    defaultDetailType?: string | React.FC | React.ComponentClass;
+    defaultDetailType?: string | React.FunctionComponent | React.Component;
     defaultFormItemProps?: { [key: string]: any };
     getFormItemPropsFromProps?: (props: FormItemWrapperProps) => { [key: string]: any };
   }
