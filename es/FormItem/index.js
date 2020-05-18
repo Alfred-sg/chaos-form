@@ -56,22 +56,26 @@ export default FormItem;
 var formItemPropNames = [// antd 属性
 'colon', 'dependencies', 'extra', 'getValueFromEvent', 'getValueProps', 'hasFeedback', 'help', 'htmlFor', 'initialValue', 'noStyle', 'label', 'labelAlign', 'labelCol', 'name', 'normalize', 'required', 'rules', 'shouldUpdate', 'trigger', 'validateFirst', 'validateStatus', 'validateTrigger', 'valuePropName', 'wrapperCol', // antd 属性
 'formItemClassName'];
+var detailFormItemPropNames = [// antd 属性
+'colon', 'dependencies', 'getValueFromEvent', 'getValueProps', 'htmlFor', 'initialValue', 'noStyle', 'label', 'labelAlign', 'labelCol', 'name', 'normalize', 'required', 'valuePropName', 'wrapperCol', // antd 属性
+'formItemClassName'];
 export var WrapFormItem = function WrapFormItem(Field, options) {
   var FormItemWrapper = function FormItemWrapper(props) {
     var formAttributesContext = useContext(FormAttributesContext);
+    var isDetail = formAttributesContext.detail;
 
     var children = props.children,
         detailType = props.detailType,
         rest = _objectWithoutProperties(props, ["children", "detailType"]);
 
-    var formItemProps = extract(rest, formItemPropNames);
+    var formItemProps = extract(rest, isDetail ? detailFormItemPropNames : formItemPropNames);
     var fieldProps = omit(rest, formItemPropNames);
     var formItemPropsFromProps = options && options.getFormItemPropsFromProps ? options.getFormItemPropsFromProps(props) : undefined;
 
     var finalFormItemProps = _objectSpread(_objectSpread(_objectSpread({}, options && options.defaultFormItemProps), formItemProps), formItemPropsFromProps);
 
     var DetailComponent = detailType ? DetailComponents[detailType] : typeof (options && options.defaultDetailType) == 'string' ? DetailComponents[options === null || options === void 0 ? void 0 : options.defaultDetailType] : _typeof(options && options.defaultDetailType) !== undefined ? options === null || options === void 0 ? void 0 : options.defaultDetailType : undefined;
-    return React.createElement(FormItem, Object.assign({}, finalFormItemProps), formAttributesContext.detail && DetailComponent ? // @ts-ignore
+    return React.createElement(FormItem, Object.assign({}, finalFormItemProps), isDetail && DetailComponent ? // @ts-ignore
     React.createElement(DetailComponent, Object.assign({}, fieldProps, {
       valuePropName: finalFormItemProps.valuePropName
     }), children ? children : null) // @ts-ignore

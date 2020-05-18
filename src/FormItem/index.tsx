@@ -59,6 +59,15 @@ const formItemPropNames = [
   'formItemClassName', 
 ];
 
+const detailFormItemPropNames = [
+  // antd 属性
+  'colon', 'dependencies', 'getValueFromEvent', 'getValueProps', 
+  'htmlFor', 'initialValue', 'noStyle', 'label', 'labelAlign', 'labelCol', 
+  'name', 'normalize', 'required', 'valuePropName', 'wrapperCol',
+  // antd 属性
+  'formItemClassName', 
+];
+
 export const WrapFormItem = (
   Field: React.FC<any> | React.FunctionComponent<any> | React.Component<any>, 
   options?: {
@@ -69,8 +78,9 @@ export const WrapFormItem = (
 ) => {
   const FormItemWrapper: React.FC<FormItemWrapperProps> = (props: FormItemWrapperProps) => {
     const formAttributesContext = useContext(FormAttributesContext);
+    const isDetail = formAttributesContext.detail;
     const { children, detailType, ...rest } = props;
-    const formItemProps = extract(rest, formItemPropNames);
+    const formItemProps = extract(rest, isDetail ? detailFormItemPropNames : formItemPropNames);
     const fieldProps = omit(rest, formItemPropNames);
     const formItemPropsFromProps = options && options.getFormItemPropsFromProps ? 
       options.getFormItemPropsFromProps(props) : undefined;
@@ -87,7 +97,7 @@ export const WrapFormItem = (
 
     return (
       <FormItem {...finalFormItemProps}>
-        {formAttributesContext.detail && DetailComponent ? (
+        {isDetail && DetailComponent ? (
           // @ts-ignore
           <DetailComponent {...fieldProps} valuePropName={finalFormItemProps.valuePropName}>
             {children ? children : null}
