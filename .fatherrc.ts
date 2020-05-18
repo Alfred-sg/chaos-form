@@ -1,20 +1,9 @@
 import { IBundleOptions } from 'father';
 
 const options: IBundleOptions = {
-  umd: {
-    name: 'ChaosForm',
-    globals: {
-      'react': 'React',
-    },
-  },
-  esm: {
-    type: "rollup",// rollup 模式将文件打包在一起，babel 单独打包
-    importLibToEs: true,
-  },
-  cjs: {
-    type: "rollup",
-  },
-  file: 'index',
+  cjs: 'babel',
+  esm: { type: 'babel', importLibToEs: true },
+  // lessInRollupMode: { },
 };
 
 export default options;

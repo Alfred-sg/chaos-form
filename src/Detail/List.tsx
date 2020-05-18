@@ -23,15 +23,17 @@ const List = ({
                 renderItemDetail(item, index) : 
                 (
                   <div className="chaos-form-detail-row" key={index}>
-                    // @ts-ignore
-                    {Children.map<React.ReactElement, React.ReactElement>(children, child => {
-                      const props = child.props;
-                      return cloneElement(child, {
-                        ...props,
-                        name: [formItemPropsContext.name, index, props.name],
-                        key: `${index}${props.name}`,
+                    {Children.map<React.ReactElement, React.ReactElement>(
+                      // @ts-ignore
+                      children, child => {
+                        const props = child.props;
+                        return cloneElement(child, {
+                          ...props,
+                          name: [formItemPropsContext.name, index, props.name],
+                          key: `${index}${props.name}`,
+                        })
                       })
-                    })}
+                    }
                   </div>
                 )
             }
