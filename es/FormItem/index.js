@@ -1,3 +1,6 @@
+import "antd/es/form/style";
+import _Form from "antd/es/form";
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -12,7 +15,6 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 import React, { useContext } from 'react';
 import classnames from 'classnames';
-import { Form } from 'antd';
 import PropsContext from './PropsContext';
 import omit from 'omit.js';
 import FormAttributesContext from '../Form/AttributesContext';
@@ -40,7 +42,7 @@ var FormItem = function FormItem(props) {
   ;
   return React.createElement(PropsContext.Provider, {
     value: props
-  }, React.createElement(Form.Item, Object.assign({
+  }, React.createElement(_Form.Item, Object.assign({
     className: formItemClassName,
     required: true,
     validateFirst: true

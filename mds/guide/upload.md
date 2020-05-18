@@ -67,3 +67,13 @@ export default () => {
   )
 }
 ```
+
+## properties
+
+useFetch 参数。
+
+| 属性 | 类型 | 默认值 | 意义 |
+| :- | :-: | -: | -: |
+| max | number | undefined | 最大上传数量 |
+| maxSize | number | undefined | 最大上传兆数 |
+| watermark | string | undefined | 水印文字 |

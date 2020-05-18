@@ -1,9 +1,10 @@
+import "antd/es/rate/style";
+import _Rate from "antd/es/rate";
 import React from 'react';
-import { Rate } from 'antd';
 import { WrapFormItem } from '../FormItem';
 
 var ChaosRate = function ChaosRate(props) {
-  return React.createElement(Rate, Object.assign({}, props));
+  return React.createElement(_Rate, Object.assign({}, props));
 };
 
 export default WrapFormItem(ChaosRate, {

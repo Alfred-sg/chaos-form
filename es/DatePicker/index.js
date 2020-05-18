@@ -1,25 +1,26 @@
+import "antd/es/date-picker/style";
+import _DatePicker from "antd/es/date-picker";
 import React from 'react';
-import { DatePicker } from 'antd';
 import { WrapFormItem } from '../FormItem';
 
 var ChaosDatePicker = function ChaosDatePicker(props) {
-  return React.createElement(DatePicker, Object.assign({}, props));
+  return React.createElement(_DatePicker, Object.assign({}, props));
 };
 
 var ChaosYearPicker = function ChaosYearPicker(props) {
-  return React.createElement(DatePicker.YearPicker, Object.assign({}, props));
+  return React.createElement(_DatePicker.YearPicker, Object.assign({}, props));
 };
 
 var ChaosMonthPicker = function ChaosMonthPicker(props) {
-  return React.createElement(DatePicker.MonthPicker, Object.assign({}, props));
+  return React.createElement(_DatePicker.MonthPicker, Object.assign({}, props));
 };
 
 var ChaosWeekPicker = function ChaosWeekPicker(props) {
-  return React.createElement(DatePicker.WeekPicker, Object.assign({}, props));
+  return React.createElement(_DatePicker.WeekPicker, Object.assign({}, props));
 };
 
 var ChaosRangePicker = function ChaosRangePicker(props) {
-  return React.createElement(DatePicker.RangePicker, Object.assign({}, props));
+  return React.createElement(_DatePicker.RangePicker, Object.assign({}, props));
 };
 
 var FinalDatePicker = WrapFormItem(ChaosDatePicker, {

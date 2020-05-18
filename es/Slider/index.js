@@ -1,9 +1,10 @@
+import "antd/es/slider/style";
+import _Slider from "antd/es/slider";
 import React from 'react';
-import { Slider } from 'antd';
 import { WrapFormItem } from '../FormItem';
 
 var ChaosSlider = function ChaosSlider(props) {
-  return React.createElement(Slider, Object.assign({}, props));
+  return React.createElement(_Slider, Object.assign({}, props));
 };
 
 export default WrapFormItem(ChaosSlider, {

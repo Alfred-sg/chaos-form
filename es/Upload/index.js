@@ -1,3 +1,8 @@
+import "antd/es/upload/style";
+import _Upload from "antd/es/upload";
+import "antd/es/button/style";
+import _Button from "antd/es/button";
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -17,7 +22,6 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 import React, { useState, Fragment } from 'react';
 import { IconContext } from 'react-icons';
 import { AiOutlineUpload, AiOutlineLoading, AiOutlinePlus } from 'react-icons/ai';
-import { Upload, Button } from 'antd';
 import { WrapFormItem } from '../FormItem';
 import { convetAccept, fileValidatorFactory } from './utils';
 import * as logger from '../logger';
@@ -94,14 +98,14 @@ var ChaosUpload = function ChaosUpload(_ref) {
     }
   }, React.createElement(AiOutlinePlus, null)), React.createElement("div", {
     className: "ant-upload-text"
-  }, "\u4E0A\u4F20\u56FE\u7247")) : React.createElement(Button, {
+  }, "\u4E0A\u4F20\u56FE\u7247")) : React.createElement(_Button, {
     type: "default"
   }, React.createElement(IconContext.Provider, {
     value: {
       className: 'chaos-upload-icon'
     }
   }, loading ? React.createElement(AiOutlineLoading, null) : React.createElement(AiOutlineUpload, null)), "\u6587\u4EF6\u4E0A\u4F20");
-  return React.createElement(Upload, Object.assign({
+  return React.createElement(_Upload, Object.assign({
     disabled: max && fileList && fileList.length >= max ? true : false
   }, rest, {
     fileList: fileList,
