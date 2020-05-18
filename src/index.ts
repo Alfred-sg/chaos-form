@@ -23,8 +23,8 @@ export { default as Upload }  from './Upload';
 export { default as List }  from './List';
 
 import * as Logger from './logger';
-import * as Validators from './input/validator';
-import { setDetailComponent } from './detail';
+import * as Validators from './Input/validator';
+import { setDetailComponent } from './Detail';
 
 export const logger = Logger;
 export const validators = Validators;
