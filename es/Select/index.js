@@ -7,11 +7,15 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 import React, { useContext } from 'react';
 import { WrapFormItem } from '../FormItem';
+import useOptions from '../hooks/useOptions';
 import FormItemPropsContext from '../FormItem/PropsContext';
 
 var ChaosSelect = function ChaosSelect(_ref) {
-  var options = _ref.options,
+  var optionsProp = _ref.options,
       rest = _objectWithoutProperties(_ref, ["options"]);
+
+  var _useOptions = useOptions(optionsProp),
+      options = _useOptions.options;
 
   var formItemPropsContext = useContext(FormItemPropsContext);
   return React.createElement(_Select, Object.assign({

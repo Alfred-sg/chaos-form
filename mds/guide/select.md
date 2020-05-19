@@ -32,6 +32,27 @@ export default () => {
 }
 ```
 
+### demo 2: 远程数据
+
+```jsx
+import React from 'react';
+import { Form, Select } from 'chaos-form-antd4';
+
+export default () => {
+  return (
+    <Form labelCol={3}>
+      <Select name="sex" label="性别" options={() => {
+        return Promise.resolve([{
+          label: '男', value: 'male'
+        },{
+          label: '女', value: 'female'
+        }]);
+      }} />
+    </Form>
+  )
+}
+```
+
 ### demo 2: 详情
 
 ```jsx

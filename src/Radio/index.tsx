@@ -1,12 +1,19 @@
 import React from 'react';
 import { Radio } from 'antd';
+import useOptions from '../hooks/useOptions';
 import { WrapFormItem } from '../FormItem';
-import { RadioProps } from 'antd/es/radio';
+import { ChaosRadioProps } from './types';
 
-const ChaosRadio: React.FC<RadioProps> = (props) => {
+const ChaosRadio: React.FC<ChaosRadioProps> = ({
+  options: optionsProp,
+  ...rest
+}) => {
+  const { options } = useOptions(optionsProp);
+  
   return (
     <Radio.Group
-      {...props}
+      {...rest}
+      options={options}
     >
     </Radio.Group>
   )

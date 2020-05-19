@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { Select } from 'antd';
 import { WrapFormItem } from '../FormItem';
-import { SelectProps, LabeledValue } from 'antd/es/select';
+import useOptions from '../hooks/useOptions';
 import FormItemPropsContext from '../FormItem/PropsContext';
 
-const ChaosSelect: React.FC<SelectProps<LabeledValue>> = ({
-  options,
+const ChaosSelect: React.FC<any> = ({
+  options: optionsProp,
   ...rest
 }) => {
+  const { options } = useOptions(optionsProp);
   const formItemPropsContext = useContext(FormItemPropsContext);
 
   return (

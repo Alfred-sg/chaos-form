@@ -29,3 +29,8 @@ import { setDetailComponent } from './Detail';
 export const logger = Logger;
 export const validators = Validators;
 export const registerDetailComponent = setDetailComponent;
+
+export { default as SchemaForm }  from './SchemaForm';
+import { setFieldComponent } from './SchemaForm';
+
+export const registerFieldComponent = setFieldComponent;
