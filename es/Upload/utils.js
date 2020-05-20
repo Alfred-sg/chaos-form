@@ -46,7 +46,7 @@ export var convetAccept = function convetAccept(accept) {
 
 export var fileValidatorFactory = function fileValidatorFactory(props) {
   return function (file) {
-    var preventUpload = true;
+    var preventUpload = false;
 
     if (props.accept) {
       var typeAllowed = false;
@@ -103,7 +103,7 @@ export var fileValidatorFactory = function fileValidatorFactory(props) {
       }).join(',');
 
       if (!hasAcceptNotRegistered && !typeAllowed) {
-        preventUpload = false;
+        preventUpload = true;
         logger.fail('文件格式不正确');
       }
     }
@@ -112,20 +112,20 @@ export var fileValidatorFactory = function fileValidatorFactory(props) {
       var lessThenMaxSize = file.size / 1024 / 1024 < props.maxSize;
 
       if (!lessThenMaxSize) {
-        preventUpload = false;
+        preventUpload = true;
         logger.fail("\u6587\u4EF6\u4E0D\u80FD\u5927\u4E8E ".concat(props.maxSize, "MB"));
       }
     }
 
     if (props.max) {
       if (props.fileList && props.fileList.length >= props.max) {
-        preventUpload = false;
+        preventUpload = true;
         logger.fail("\u4E0A\u4F20\u6587\u4EF6\u6570\u4E0D\u80FD\u8D85\u8FC7 ".concat(props.max, " \u4E2A"));
       }
     } // @ts-ignore
 
 
-    file.uploadPrevented = true;
-    return preventUpload;
+    file.uploadPrevented = preventUpload;
+    return !preventUpload;
   };
 };

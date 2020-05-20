@@ -41,7 +41,7 @@ export const convetAccept = (accept?: string) => {
 // 校验文件
 export const fileValidatorFactory = (props: ChaosUploadProps) => {
   return (file: File) => {
-    let preventUpload = true;
+    let preventUpload = false;
 
     if (props.accept){
       let typeAllowed = false;
@@ -89,7 +89,7 @@ export const fileValidatorFactory = (props: ChaosUploadProps) => {
       }).join(',');
   
       if (!hasAcceptNotRegistered && !typeAllowed){
-        preventUpload = false;
+        preventUpload = true;
         logger.fail('文件格式不正确');
       }
     }
@@ -97,20 +97,20 @@ export const fileValidatorFactory = (props: ChaosUploadProps) => {
     if (props.maxSize){
       const lessThenMaxSize = file.size / 1024 / 1024 < props.maxSize;
       if (!lessThenMaxSize) {
-        preventUpload = false;
+        preventUpload = true;
         logger.fail(`文件不能大于 ${props.maxSize}MB`);
       }
     }
 
     if (props.max){
       if (props.fileList && props.fileList.length >= props.max){
-        preventUpload = false;
+        preventUpload = true;
         logger.fail(`上传文件数不能超过 ${props.max} 个`);
       }
     }
 
     // @ts-ignore
-    file.uploadPrevented = true;
-    return preventUpload;
+    file.uploadPrevented = preventUpload;
+    return !preventUpload;
   }
 }
