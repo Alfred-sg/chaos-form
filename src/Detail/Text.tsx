@@ -1,17 +1,18 @@
 import React from 'react';
-import './index.less';
 
 type Option = {
   label: string, 
   value: string
 }
 
-const Text = ({
-  value,
-  options,
-}: {
+interface TextProps {
   value?: string | string[],
   options: Option[],
+}
+
+const Text: React.FC<TextProps> = ({
+  value,
+  options,
 }) => {
   let texts: string[] = Array.isArray(value) ? value : value ? [value] : [];
   if (options && options.length){

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import './index.less';
 
 const defaultRenderItem = (val: string) => {
   return val ? <span className="chaos-form-detail-tag">{val}</span> : null;

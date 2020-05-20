@@ -1,9 +1,10 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useContext, Fragment } from 'react';
 import { IconContext } from 'react-icons';
 import { AiOutlineUpload, AiOutlineLoading, AiOutlinePlus } from 'react-icons/ai';
 import { Upload, Button } from 'antd';
 import { WrapFormItem } from '../FormItem';
 import { convetAccept, fileValidatorFactory } from './utils';
+import FormItemPropsContext from '../FormItem/PropsContext';
 import * as logger from '../logger';
 import { UploadFile, UploadChangeParam, RcFile } from 'antd/es/upload/interface';
 import { ChaosUploadProps } from './types';
@@ -16,6 +17,7 @@ const ChaosUpload = ({
   onChange,
   ...rest
 }: ChaosUploadProps) => {
+  const formItemPropsContext = useContext(FormItemPropsContext);
   const [loading, setLoading] = useState<boolean>(false);
 
   const defaultTransformFile = rest.watermark ? (file: RcFile) => {
@@ -93,6 +95,7 @@ const ChaosUpload = ({
     <Upload 
       disabled={max && fileList && fileList.length >= max ? true : false}
       {...rest} 
+      name={formItemPropsContext.name as string}
       fileList={fileList}
       accept={convetAccept(rest.accept)} 
       transformFile={transformFile}
