@@ -19,11 +19,12 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-import React, { useState, Fragment } from 'react';
+import React, { useState, useContext, Fragment } from 'react';
 import { IconContext } from 'react-icons';
 import { AiOutlineUpload, AiOutlineLoading, AiOutlinePlus } from 'react-icons/ai';
 import { WrapFormItem } from '../FormItem';
 import { convetAccept, fileValidatorFactory } from './utils';
+import FormItemPropsContext from '../FormItem/PropsContext';
 import * as logger from '../logger';
 import './index.less';
 
@@ -33,6 +34,8 @@ var ChaosUpload = function ChaosUpload(_ref) {
       fileList = _ref.fileList,
       onChange = _ref.onChange,
       rest = _objectWithoutProperties(_ref, ["children", "max", "fileList", "onChange"]);
+
+  var formItemPropsContext = useContext(FormItemPropsContext);
 
   var _useState = useState(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -108,6 +111,7 @@ var ChaosUpload = function ChaosUpload(_ref) {
   return React.createElement(_Upload, Object.assign({
     disabled: max && fileList && fileList.length >= max ? true : false
   }, rest, {
+    name: formItemPropsContext.name,
     fileList: fileList,
     accept: convetAccept(rest.accept),
     transformFile: transformFile,

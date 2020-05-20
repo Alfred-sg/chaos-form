@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.less';
 
 var Text = function Text(_ref) {
   var value = _ref.value,

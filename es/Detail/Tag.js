@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import './index.less';
 
 var defaultRenderItem = function defaultRenderItem(val) {
   return val ? React.createElement("span", {
