@@ -48,6 +48,7 @@ const ChaosUpload = ({
   const handleChange = (info: UploadChangeParam<UploadFile<any>>) => {
     if (info.file.status === 'uploading') {
       setLoading(true);
+      onChange && onChange(info);
       return;
     }
 

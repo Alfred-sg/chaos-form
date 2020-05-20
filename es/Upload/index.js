@@ -71,6 +71,7 @@ var ChaosUpload = function ChaosUpload(_ref) {
   var handleChange = function handleChange(info) {
     if (info.file.status === 'uploading') {
       setLoading(true);
+      onChange && onChange(info);
       return;
     }
 
