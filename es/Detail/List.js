@@ -6,7 +6,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 import React, { Children, cloneElement, useContext } from 'react';
 import FormItemPropsContext from '../FormItem/PropsContext';
-import './index.less';
+import "./index.css";
 
 var List = function List(_ref) {
   var value = _ref.value,

@@ -26,7 +26,7 @@ import { WrapFormItem } from '../FormItem';
 import { convetAccept, fileValidatorFactory } from './utils';
 import FormItemPropsContext from '../FormItem/PropsContext';
 import * as logger from '../logger';
-import './index.less';
+import "./index.css";
 
 var ChaosUpload = function ChaosUpload(_ref) {
   var children = _ref.children,

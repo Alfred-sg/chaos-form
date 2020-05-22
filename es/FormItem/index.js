@@ -20,7 +20,7 @@ import omit from 'omit.js';
 import FormAttributesContext from '../Form/AttributesContext';
 import { DetailComponents } from '../Detail';
 import { extract } from '../utils';
-import './index.less';
+import "./index.css";
 
 var FormItem = function FormItem(props) {
   var className = props.className,

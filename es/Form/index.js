@@ -15,7 +15,7 @@ import React from 'react';
 import FormContext from './Context';
 import FormAttributesContext from './AttributesContext';
 import FormItem from '../FormItem';
-import './index.less';
+import "./index.css";
 
 var CustomForm = function CustomForm(props) {
   var form = props.form,

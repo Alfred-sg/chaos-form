@@ -23,7 +23,7 @@ import useList from './useList';
 import FormContext from '../Form/Context';
 import FormItemPropsContext from '../FormItem/PropsContext';
 import { WrapFormItem } from '../FormItem';
-import './index.less';
+import "./index.css";
 
 var ChaosList = function ChaosList(_ref) {
   var value = _ref.value,

@@ -8,6 +8,7 @@ const options: IBundleOptions = {
   },
   cjs: 'babel',
   extraBabelPlugins: [['import', { libraryName: 'antd', style: true }]],
+  lessInBabelMode: true,
 };
 
 export default options;
