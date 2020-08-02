@@ -110,7 +110,7 @@ var ChaosUpload = function ChaosUpload(_ref) {
     }
   }, loading ? React.createElement(AiOutlineLoading, null) : React.createElement(AiOutlineUpload, null)), "\u6587\u4EF6\u4E0A\u4F20");
   return React.createElement(_Upload, Object.assign({
-    disabled: max && fileList && fileList.length >= max ? true : false
+    disabled: max != undefined && fileList && fileList.length >= max ? true : false
   }, rest, {
     name: formItemPropsContext.name,
     fileList: fileList,

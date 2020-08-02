@@ -48,6 +48,6 @@ export var getRulesFromProps = function getRulesFromProps(props) {
       });
   }
 
-  if (props.rules) rules = [].concat(_toConsumableArray(rules), [props.rules]);
+  if (props.rules) rules = [].concat(_toConsumableArray(rules), _toConsumableArray(props.rules));
   return rules;
 };

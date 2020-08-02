@@ -20,7 +20,7 @@ const FormItem: React.FC<FormItemProps> = (props) => {
     [className as string]: !!className,
   });
 
-  const rules = props.rules ? props.rules : [];
+  const rules = props && props.rules ? props.rules : [];
   if (props.required){
     rules.unshift({ 
       required: true,

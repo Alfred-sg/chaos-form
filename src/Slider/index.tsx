@@ -1,9 +1,8 @@
 import React from 'react';
 import { Slider } from 'antd';
 import { WrapFormItem } from '../FormItem';
-import { SliderProps } from 'antd/es/slider';
 
-const ChaosSlider: React.FC<SliderProps> = (props) => {
+const ChaosSlider: React.FC<any> = (props) => {
   return (
     <Slider {...props}>
     </Slider>
@@ -11,7 +10,7 @@ const ChaosSlider: React.FC<SliderProps> = (props) => {
 }
 
 export default WrapFormItem(ChaosSlider, {
-  defaultDetailType: (props: SliderProps) => {
+  defaultDetailType: (props: any) => {
     return <ChaosSlider {...props} disabled />
   },
 });

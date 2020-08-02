@@ -30,7 +30,7 @@ var FormItem = function FormItem(props) {
   var formItemClassName = classnames(_defineProperty({
     'chaos-form-item': true
   }, className, !!className));
-  var rules = props.rules ? props.rules : [];
+  var rules = props && props.rules ? props.rules : [];
 
   if (props.required) {
     rules.unshift({

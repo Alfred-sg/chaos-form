@@ -94,7 +94,7 @@ const ChaosUpload = ({
 
   return (
     <Upload 
-      disabled={max && fileList && fileList.length >= max ? true : false}
+      disabled={max != undefined && fileList && fileList.length >= max ? true : false}
       {...rest} 
       name={formItemPropsContext.name as string}
       fileList={fileList}

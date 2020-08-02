@@ -35,6 +35,6 @@ export const getRulesFromProps = (props: FormItemWrapperProps) => {
       })
   }
 
-  if (props.rules) rules = [...rules, props.rules];
+  if (props.rules) rules = [...rules, ...props.rules];
   return rules;
 }
